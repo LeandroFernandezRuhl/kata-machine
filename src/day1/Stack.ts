@@ -18,10 +18,10 @@ export default class Stack<T> {
 
         if (!this.head) {
             this.head = node;
+            return;
         }        
 
-        const head = this.head;
-        node.next = head;
+        node.next = this.head;
         this.head = node;
     }
 
@@ -34,10 +34,6 @@ export default class Stack<T> {
 
         const head = this.head;
         this.head = this.head.next;
-
-        if (this.length === 0) {
-            this.head = undefined;
-        }
 
         return head.value;       
 }
